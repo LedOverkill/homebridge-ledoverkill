@@ -13,25 +13,21 @@ function LedOverkillAccessory(log, config) {
   this.hostname = config.hostname;
   this.name = config.name;
 
-  this.tcpRequest = function(func, value = -1, callback) {
+  this.tcpRequest = function(func, value, callback) {
     var client = new net.Socket();
     var payload = func + ":" + value+ "\r";
 
-    console.log('Connecting... payload: ' + payload);
+    // console.log('Connecting... payload: ' + payload);
 
     client.connect(8080, 'krissi-esp8266.local', function() {
-      console.log('Connected');
+      // console.log('Connected');
       client.write(payload);
     });
-    
+
     client.on('data', function(data) {
       var dataString = "";
-      try {
-        dataString = data.toString();
-        callback(null, dataString);
-      } catch (error) {
-        callback(error);
-      }
+      dataString = data.toString();
+      callback(null, dataString);
       client.destroy(); // kill client after server's response
     });
 
@@ -39,12 +35,12 @@ function LedOverkillAccessory(log, config) {
       callback();
     })
 
-    client.on('error', function() {
+    client.on('error', function(error) {
       callback(error);
     })
 
     client.on('close', function() {
-      console.log('Connection closed');
+      // console.log('Connection closed');
     });
   }
 }
@@ -88,7 +84,7 @@ LedOverkillAccessory.prototype = {
   },
 
   getPowerState: function(callback) {
-    this.tcpRequest("getPowerState", callback);
+    this.tcpRequest("getPowerState", 0, callback);
   },
 
   setPowerState: function(state, callback) {
@@ -96,7 +92,7 @@ LedOverkillAccessory.prototype = {
   },
 
   getBrightness: function(callback) {
-    this.tcpRequest("getBrightness", callback);
+    this.tcpRequest("getBrightness", 0, callback);
   },
 
   setBrightness: function(level, callback) {
@@ -104,7 +100,7 @@ LedOverkillAccessory.prototype = {
   },
 
   getHue: function(callback) {
-    this.tcpRequest("getHue", callback);
+    this.tcpRequest("getHue", 0, callback);
   },
 
   setHue: function(hue, callback) {
@@ -112,7 +108,7 @@ LedOverkillAccessory.prototype = {
   },
 
   getSaturation: function(callback) {
-    this.tcpRequest("getSaturation", callback);
+    this.tcpRequest("getSaturation", 0, callback);
   },
 
   setSaturation: function(saturation, callback) {
