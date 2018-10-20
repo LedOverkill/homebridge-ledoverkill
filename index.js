@@ -9,6 +9,7 @@ module.exports = function(homebridge) {
 
 function LedOverkillAccessory(log, config) {
   this.log = log;
+  this.hostname = config.hostname;
   this.name = config.name;
 }
 
