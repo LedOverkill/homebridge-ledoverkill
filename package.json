@@ -1,0 +1,27 @@
+{
+  "name": "ledoverkill-homebridge-plugin",
+  "description": "Homebridge plugin for our WS2801",
+  "author": "LedOverkill",
+  "license": "MIT",
+  "version": "0.1.3",
+  "keywords": [
+    "homebridge-plugin",
+    "homekit",
+    "firmware",
+    "light"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": "10.12",
+    "homebridge": "0.4.45"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LedOverkill/ledoverkill-homebridge-plugin"
+  },
+  "bugs": {
+    "url": "https://github.com/LedOverkill/ledoverkill-homebridge-plugin/issues"
+  },
+  "homepage": "https://github.com/LedOverkill/ledoverkill-homebridge-plugin"
+}
