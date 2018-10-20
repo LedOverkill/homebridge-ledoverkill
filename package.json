@@ -1,5 +1,5 @@
 {
-  "name": "ledoverkill-homebridge-plugin",
+  "name": "homebridge-ledoverkill",
   "description": "Homebridge plugin for our WS2801",
   "author": "LedOverkill",
   "license": "MIT",
@@ -18,10 +18,10 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LedOverkill/ledoverkill-homebridge-plugin"
+    "url": "git+https://github.com/LedOverkill/homebridge-ledoverkill"
   },
   "bugs": {
-    "url": "https://github.com/LedOverkill/ledoverkill-homebridge-plugin/issues"
+    "url": "https://github.com/LedOverkill/homebridge-ledoverkill/issues"
   },
-  "homepage": "https://github.com/LedOverkill/ledoverkill-homebridge-plugin"
+  "homepage": "https://github.com/LedOverkill/homebridge-ledoverkill"
 }
