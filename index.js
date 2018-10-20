@@ -91,7 +91,8 @@ LedOverkillAccessory.prototype = {
     this.tcpRequest("getPowerState", callback);
   },
 
-  setPowerState: function(state, callback) {
+  setPowerState: function(on, callback) {
+    var state = (on) ? 1 : 0;
     this.tcpRequest("setPowerState", state, callback);
   },
 
