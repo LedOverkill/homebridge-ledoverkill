@@ -19,7 +19,7 @@ function LedOverkillAccessory(log, config) {
 
     // console.log('Connecting... payload: ' + payload);
 
-    client.connect(8080, 'krissi-esp8266.local', function() {
+    client.connect(8080, this.hostname, function() {
       // console.log('Connected');
       client.write(payload);
     });
