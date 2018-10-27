@@ -17,6 +17,7 @@ function LedOverkillAccessory(log, config) {
     var client = new net.Socket();
     var payload = func + ":" + value+ "\r";
 
+    client.setTimeout(1000);
     // console.log('Connecting... payload: ' + payload);
 
     client.connect(8080, this.hostname, function() {
