@@ -17,7 +17,7 @@ function LedOverkillAccessory(log, config) {
     var client = new net.Socket();
     var payload = func + ":" + value+ "\r";
 
-    client.setTimeout(1000);
+    client.setTimeout(500);
     // console.log('Connecting... payload: ' + payload);
 
     client.connect(8080, this.hostname, function() {
@@ -38,6 +38,12 @@ function LedOverkillAccessory(log, config) {
 
     client.on('error', function(error) {
       callback(error);
+    })
+
+    client.on('timeout', function() {
+      console.log("timeout");
+      callback("timeout");
+      client.end();
     })
 
     client.on('close', function() {
